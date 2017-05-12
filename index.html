@@ -1,0 +1,60 @@
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+	<script src="https://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+	<base href="http://localhost/tushar/angular-structure/">
+</head>
+
+<body ng-app="app" ng-controller="MainCtrl as main">
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">	
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- <a class="navbar-brand" href="#">Project name</a> -->
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+					<li ui-sref-active="active"><a ui-sref="todo">To-do</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a ui-sref="login" ng-if="!main.currentUser">Login</a></li>
+					<li><a ng-if="main.currentUser" ng-click="main.logout()">Logout ({{ main.currentUser.username }})</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="container">
+		<ui-view></ui-view>
+	</div>
+
+	<script src="home/home.module.js"></script>
+	<script src="home/home.component.js"></script>
+	<script src="user/user.module.js"></script>
+	<script src="user/user.service.js"></script>
+	<script src="user/user.login.service.js"></script>
+	<script src="user/user.login.component.js"></script>
+	<script src="user/user.register.component.js"></script>
+	<script src="user/user.config.js"></script>
+	<script src="todo/todo.module.js"></script>
+	<script src="todo/todo.component.js"></script>
+	<script src="todo/todo.config.js"></script>
+	<script src="app.module.js"></script>
+	<script src="app.controller.js"></script>
+	<script src="app.config.js"></script>
+	<!-- <script src=""></script> -->
+	<!-- <script src=""></script> -->
+	<!-- <script src=""></script> -->
+</body>
+</html>
